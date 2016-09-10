@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.zhaoqian.security.model.User;
 import org.zhaoqian.security.shiro.support.JpaRealmRepository;
 
@@ -74,6 +75,7 @@ public class LoginBean
 			user.setLastLogin(new Date());
 			user = jpaRealmRepository.mergeUser(user);
 
+            subject.getSession().setAttribute("loginUser", user);
 			return "redirect:/home";
 		} catch (UnknownAccountException uae)
 		{
@@ -94,4 +96,12 @@ public class LoginBean
 		} 
 		return "/login";
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout() {
+	    log.info("logout");
+	    Subject subject=SecurityUtils.getSubject();
+	    subject.logout();
+        return  "/login";
+    }
 }

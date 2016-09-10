@@ -2,6 +2,7 @@
 	<c:param name="title" value="HOME" />
 	<c:param name="body">
 		<h2>Hello!</h2>
+		<h3>${loginUser.name }</h3>
 		<p>
 			${f:h(serverTime)}<br>
 		</p>

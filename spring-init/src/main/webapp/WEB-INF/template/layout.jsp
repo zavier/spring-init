@@ -24,7 +24,10 @@
 			<ul class="nav navbar-nav">
 					<li><a class="navbar-brand" href="${pageContext.request.contextPath}/person/list">Person</a></li>
 					<li><a class="navbar-brand" href="${pageContext.request.contextPath}/security/user/list">用户</a></li>
-					<li><a class="navbar-brand" href="${pageContext.request.contextPath}/security/role/list">权限</a></li>
+					<li><a class="navbar-brand" href="${pageContext.request.contextPath}/security/role/list">角色</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+					<li><a class="navbar-brand" href="${pageContext.request.contextPath}/logout">退出</a></li>
 			</ul>
 			<shiro:authenticated>
 				<form class="navbar-form navbar-right" role="search" style="margin-top: 15px;">
